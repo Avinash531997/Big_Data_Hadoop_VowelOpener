@@ -1,0 +1,204 @@
+Microsoft Windows [Version 10.0.18362.1016]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\a>ssh iitp@172.16.27.178
+iitp@172.16.27.178's password:
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-36-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+160 packages can be updated.
+0 updates are security updates.
+
+New release '18.04.5 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+*** System restart required ***
+Last login: Sat Sep 12 00:53:46 2020 from 192.168.101.157
+iitp@iitp-virtual-machine:~$ cd /home/iitp
+iitp@iitp-virtual-machine:~$ ls
+assig2                      fact-gradle          sbt-1.0.0.tgz
+assign6                     gradlew              scala-2.12.6
+build.gradle                gradlew.bat          scala-2.12.6.tgz
+Desktop                     hadoop-2.6.0         settings.gradle
+docker                      hadoop-2.6.0.tar.gz  spark-2.2.0-bin-hadoop2.6
+docker_assign5              HelloWorld.class     spark-2.2.0-bin-hadoop2.6.tgz
+docker-example              HelloWorld.java      Templates
+Dockerfile                  login.sh             Videos
+docker-hello-world-example  Music                voting
+Documents                   Pictures             vowelword
+Downloads                   prime                wordcount
+examples.desktop            Public               wordcount-100
+iitp@iitp-virtual-machine:~$ cd vowelword
+iitp@iitp-virtual-machine:~/vowelword$ ls
+inputdata                  Vowel_words.class  Vowel_words$TokenizerMapper.class
+Vowel_words$Appendz.class  Vowel_words.java   vw.jar
+iitp@iitp-virtual-machine:~/vowelword$ rm -r vowelword.java
+rm: cannot remove 'vowelword.java': No such file or directory
+iitp@iitp-virtual-machine:~/vowelword$ rm -r Vowe_words.java
+rm: cannot remove 'Vowe_words.java': No such file or directory
+iitp@iitp-virtual-machine:~/vowelword$ rm -r Vowel_words.java
+iitp@iitp-virtual-machine:~/vowelword$ ls
+inputdata                  Vowel_words.class                  vw.jar
+Vowel_words$Appendz.class  Vowel_words$TokenizerMapper.class
+iitp@iitp-virtual-machine:~/vowelword$ nano Vowel_words.java
+iitp@iitp-virtual-machine:~/vowelword$ cd /home/iitp/vowelword/inputdata
+iitp@iitp-virtual-machine:~/vowelword/inputdata$ nano input.txt
+iitp@iitp-virtual-machine:~/vowelword/inputdata$ iitp@iitp-virtual-machine:~/vowelword/inputdata$ cd /home/iitp/hadoop-2.6.0/sbin
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/sbin$ ./start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting namenodes on [localhost]
+iitp@localhost's password:
+localhost: namenode running as process 12746. Stop it first.
+iitp@localhost's password:
+localhost: datanode running as process 12885. Stop it first.
+Starting secondary namenodes [0.0.0.0]
+iitp@0.0.0.0's password:
+0.0.0.0: secondarynamenode running as process 13056. Stop it first.
+starting yarn daemons
+resourcemanager running as process 13197. Stop it first.
+iitp@localhost's password:
+localhost: nodemanager running as process 13505. Stop it first.
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/sbin$ ./hadoop fs -mkdir /vowelword
+-bash: ./hadoop: No such file or directory
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/sbin$ cd /home/iitp/hadoop-2.6.0/bin
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop fs -mkdir /vowelword
+mkdir: `/vowelword': File exists
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop fs -mkdir /vowelword/inputdata
+mkdir: `/vowelword/inputdata': File exists
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hdfs dfs -put /home/iitp/vowelword/inputdata/input.txt /vowelword/inputdata/
+put: `/vowelword/inputdata/input.txt': File exists
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ export HADOOP_CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/lib/tools.jar
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ cd /home/iitp/hadoop-2.6.0/bin
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop com.sun.tools.javac.Main /home/iitp/vowelword/Vowel_words.java
+/home/iitp/vowelword/Vowel_words.java:70: error: reached end of file while parsing
+}
+ ^
+1 error
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop com.sun.tools.javac.Main /home/iitp/vowelword/Vowel_words.java
+/home/iitp/vowelword/Vowel_words.java:70: error: reached end of file while parsing
+}
+ ^
+1 error
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop com.sun.tools.javac.Main /home/iitp/vowelword/Vowel_words.java
+/home/iitp/vowelword/Vowel_words.java:70: error: reached end of file while parsing
+}
+ ^
+1 error
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop com.sun.tools.javac.Main /home/iitp/vowelword/Vowel_words.java
+/home/iitp/vowelword/Vowel_words.java:70: error: reached end of file while parsing
+}
+ ^
+1 error
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ cd /home/iitp/vowelword
+iitp@iitp-virtual-machine:~/vowelword$ rm -r Vowel_words.java
+iitp@iitp-virtual-machine:~/vowelword$ nano Vowel_words.java
+iitp@iitp-virtual-machine:~/vowelword$ cd /home/iitp/hadoop-2.6.0/bin
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ export HADOOP_CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/lib/tools.jar
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop com.sun.tools.javac.Main /home/iitp/vowelword/Vowel_words.java
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ cd /home/iitp/vowelword
+iitp@iitp-virtual-machine:~/vowelword$ jar cf vw.jar Vowel_words*.class
+iitp@iitp-virtual-machine:~/vowelword$ cd /home/iitp/hadoop-2.6.0/bin
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop jar /home/iitp/vowelword/vw.jar Vowel_words /vowelword/inputdata/ /vowelword/outputdata
+20/09/12 08:56:15 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/vowelword/outputdata already exists
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:146)
+        at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:562)
+        at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:432)
+        at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1296)
+        at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1293)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
+        at org.apache.hadoop.mapreduce.Job.submit(Job.java:1293)
+        at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1314)
+        at Vowel_words.main(Vowel_words.java:69)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+        at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop fs -rmr /vowelword/outputdata
+rmr: DEPRECATED: Please use 'rm -r' instead.
+20/09/12 08:57:28 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /vowelword/outputdata
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop jar /home/iitp/vowelword/vw.jar Vowel_words /vowelword/inputdata/ /vowelword/outputdata
+20/09/12 08:57:49 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+20/09/12 08:57:50 WARN mapreduce.JobSubmitter: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+20/09/12 08:57:50 INFO input.FileInputFormat: Total input paths to process : 1
+20/09/12 08:57:50 INFO mapreduce.JobSubmitter: number of splits:1
+20/09/12 08:57:51 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1599557317188_0005
+20/09/12 08:57:51 INFO impl.YarnClientImpl: Submitted application application_1599557317188_0005
+20/09/12 08:57:51 INFO mapreduce.Job: The url to track the job: http://iitp-virtual-machine:8088/proxy/application_1599557317188_0005/
+20/09/12 08:57:51 INFO mapreduce.Job: Running job: job_1599557317188_0005
+20/09/12 08:57:59 INFO mapreduce.Job: Job job_1599557317188_0005 running in uber mode : false
+20/09/12 08:57:59 INFO mapreduce.Job:  map 0% reduce 0%
+20/09/12 08:58:05 INFO mapreduce.Job:  map 100% reduce 0%
+20/09/12 08:58:12 INFO mapreduce.Job:  map 100% reduce 100%
+20/09/12 08:58:12 INFO mapreduce.Job: Job job_1599557317188_0005 completed successfully
+20/09/12 08:58:12 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=3442
+                FILE: Number of bytes written=217669
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=13797
+                HDFS: Number of bytes written=3411
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters
+                Launched map tasks=1
+                Launched reduce tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=4042
+                Total time spent by all reduces in occupied slots (ms)=4281
+                Total time spent by all map tasks (ms)=4042
+                Total time spent by all reduce tasks (ms)=4281
+                Total vcore-seconds taken by all map tasks=4042
+                Total vcore-seconds taken by all reduce tasks=4281
+                Total megabyte-seconds taken by all map tasks=4139008
+                Total megabyte-seconds taken by all reduce tasks=4383744
+        Map-Reduce Framework
+                Map input records=187
+                Map output records=603
+                Map output bytes=4597
+                Map output materialized bytes=3442
+                Input split bytes=116
+                Combine input records=603
+                Combine output records=5
+                Reduce input groups=5
+                Reduce shuffle bytes=3442
+                Reduce input records=5
+                Reduce output records=5
+                Spilled Records=10
+                Shuffled Maps =1
+                Failed Shuffles=0
+                Merged Map outputs=1
+                GC time elapsed (ms)=117
+                CPU time spent (ms)=1000
+                Physical memory (bytes) snapshot=325447680
+                Virtual memory (bytes) snapshot=3762126848
+                Total committed heap usage (bytes)=222429184
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters
+                Bytes Read=13681
+        File Output Format Counters
+                Bytes Written=3411
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$ ./hadoop fs -cat /vowelword/outputdata/part-r-00000
+A       as,age,an.,and,am,attentive,Am,as.,any,After,at,at,an,all,As,ask,are,are,About,article,are,age.,and,Abode,admire,assurance.,admitting,agreeable,American,accepting,and,and,anywhere,alone,Assurance,And,And,a,a,a,Americans,am,an,along,and,about,as,are,answer,American?,a,And,a,at,and,and,an,and,admire,a,add,as,a,a,At,Appetite,amongst,At,always,ask,age,agreeable,and,are,above,all,an.,am.,above,and,attachment,and,at,any,ask,are,an,addition,any,about,affection,against,and,against.,am,as,at,As,as,and,appear,at,any,answer,and.,among,all,as,away.,as.,age,as,attacks,At,add,And,and,am,article,As,At,and,away.,am,and,an,are,all,at,after,answer,an,as,An,An,answer.,and,am,abilities,as,am,agreement,appetite,an.,and,advanced,any,at,Assistance,at.,As,acuteness,armed,age,at.,advanced,addicts,although,am,an,at,am,As,appetite,an,all,and,as.,acuteness,Add,an,a,Added,all,affixed,and,Add,at.,an,an.,as,additions.,adapted,advantage,all,are,ask,as,although,admitting,an,at,about,arsenal,Alone,as,answered,and,As,at,arrival.,at,am,appetite,as,and,any,ability,and,are.,after,Although,at,abilities.,am,aimed,ask.,avoid,as,am,abode,attended,added,alone,as,an,at,any,As,anxious.,again,and,And,a,assurance,abilities,and,,
+E       easy,even,elsewhere,enquire,extensive,earnestly,eagerness,expenses,Especially,end,each,explained,elderly,exertion,extremely,earnestly,exquisite,expense,explain,Estate,everything,explained,explained,extremity,enjoyed,elderly,estate,earnestly,every,edward,enjoyed,extent,end,evident,everything,easy,eat,excessively,enemies,exposed,expression,episodes,eyes,end,entire,engrossed,entertain,explain,entirely,even.,earnestly,endeavor,eat,end,Ever,elinor.,entirely.,elinor,easy,equal,excuse,end,ecstatic.,Entirely,express,eat,engrossed,exertion,eat,excellent,entreaties,even,enjoyment,Earnestly,elsewhere,everything,enjoy,eldest,extent,education,existence,Estimable,Excellent,excuse,eat,Education,enable,equally,,
+I       is,If,if,into,its,invitation,if,it,if,improve,its,is,indeed,it,in,it,it.,in,itself,in.,In,imperfections,Il,improving,improve,increasing,imprudence,is,its,intentionally,is,is,it,its,in,if,if,immediate,in,if,If,introduced,it,its,imprudence,in,it,immediate,it,in,if,Inhabit,intention.,invitation,Inquietude,in,interest,it,in,inhabit,intention,imagine,Instantly,it,Indeed,in,it,Improve,inquiry.,it,improve,If,in,in,is,invited.,invited,in,Introduced,interested.,in,in,invade,interest,its,in.,in,It,in,in,its,intention,is.,in,it,if,if.,if,in,it,in.,it.,it,it,in,it,it,insipidity.,intention.,in,Improving,improve,in,it,in,in,incommode,imprecisely,inhabiting.,is,it,in,inquietude,interest,impossible,incommode,,
+O       on,out,off,of.,of,old,other,own,oh,oh,Offering,of,or,offices,Oh,own,old,off,on,our,Own,Of,one,of,own.,old,or,other,offices,on.,or,one.,of,old,on,On,Or,offending,our,on,own,out,off,of.,of,of.,offer,offence,offered,on,Of,observe.,on,out,own,others,offered,off,off,oppose,offence.,oh.,of.,of,on,on,or,of,offended,of,occasion,occasional.,on.,on,own,over,of,Or,Of,on,of,of,of,or,Of,otherwise,of,of,occasional,out,own,offended,own,out,oh,of,Only,of,of,out,or,optional,Or,of,order,of,of,of,only,of,of,one,of,overburdened,of,,
+U       unwilling,upon,unpacked,Unpleasing,Up,unsatiable,use,unlocked,unfeeling,unpacked,up.,uncommonly,up,Up,unpleasant,unpleasing,upon.,upon,use,unsatiable,uncommonly,unlocked,use,upon,unpleasant,unfeeling.,use,up,used,understood,Up,use,unpleasant,Unpleasant,up,use,unknown,,
+iitp@iitp-virtual-machine:~/hadoop-2.6.0/bin$
